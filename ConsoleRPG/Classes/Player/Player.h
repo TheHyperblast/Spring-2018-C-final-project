@@ -2,6 +2,12 @@
 #define PLAYER_H
 
 #include <string>
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+#include "Combat.h"
+//#include "Homebase.h"
 
 using namespace std;
 
@@ -14,6 +20,7 @@ class Player
 		int exp;
 		int nextLevelExp;
 		int statPoints;
+		int perkPoints;
 		
 		int hp;
 		int maxHp;
@@ -28,9 +35,12 @@ class Player
 		int speed;
 		
 		int fatigue;
+		int fatigueMax;
 
 		int damage;
+		//int damageMax;
 		
+		int gold;
 		
 	public:
 		Player();
@@ -38,6 +48,12 @@ class Player
 		
 		//Functions
 		void initalize(const string name);
+		void getPlayerInfo();
+		void levelUp();
+		void addHp(int hp);
+		int reduceDamage(int damage);
+		int takeDamage(int damage);
+		bool isAlive();
 		
 		// Accessors
 		string getName();
@@ -46,6 +62,7 @@ class Player
 		int getExp();
 		int getNextLevelExp();
 		int getStatPoints();
+		int getPerkPoints();
 		
 		int getHp();
 		int getMaxHp();
@@ -60,18 +77,36 @@ class Player
 		int getSpeed();
 		
 		int getFatigue();
+		int getFatigueMax();
 
 		int getDamage();
+		//int getDamageMax();
 		
+		int getGold();
+		
+		int lostGold();
+		
+		// Exploration stuff
+		
+		static int explored;
+		static int exploredForest;
+		static int exploredLake;
+		static int exploredDesert;
+		static int exploredCave;
+		
+		// Objects
+		//Combat combat;
 		
 		// Mutators
-
+		
+		/*
 		void setName(string);
 		
 		void setLevel(int);
 		void setExp(int);
 		void setNextLevelExp(int);
 		void setStatPoints(int);
+		void setPerkPoints(int);
 		
 		void setHp(int);
 		void setMaxHp(int);
@@ -86,8 +121,13 @@ class Player
 		void setSpeed(int);
 		
 		void setFatigue(int);
+		void setFatigueMax(int);
 
-		void setDamage(int);	
+		void setDamage(int);
+		void setDamageMax(int);	
+		
+		*/
+
 };
 
 #endif
