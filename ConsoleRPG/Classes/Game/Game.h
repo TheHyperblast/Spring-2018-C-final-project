@@ -1,10 +1,14 @@
 #ifndef	GAME_H
 #define GAME_H
 
-#include "Player.h"
-#include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <windows.h>
+
+#include "Player.h"
+#include "Explore.h"
+#include "Homebase.h"
+
 
 using namespace std;
 
@@ -18,10 +22,19 @@ class Game
 		Game();
 		~Game();
 		
+		//Functions
+		void initalizeGame();
 		void mainMenu();
 		void endGame();
+		void introGame();
 		
-		bool getPlaying(bool);
+		//Accessors
+		bool getPlaying();
+		
+		//Game related objects
+		Player player;
+		Explore explore;
+		Homebase homebase;
 };
 
 #endif
